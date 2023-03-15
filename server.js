@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const http = require("http");
 const socketio = require("socket.io");
-const { Socket } = require("dgram");
+// const { Socket } = require("dgram");
 const formatMessage = require("./utils/messages");
 const {
   userJoin,
@@ -13,7 +13,14 @@ const {
 const botName = "chatapp bot";
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors: {
+    origin: "http://127.0.0.1:5500",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true,
+  },
+});
 app.use(express.static(path.join(__dirname, "public")));
 
 io.on("connection", (socket) => {
@@ -35,6 +42,8 @@ io.on("connection", (socket) => {
   });
   socket.on("chatMessage", (msg) => {
     const user = getCurrentUser(socket.id);
+    // console.log(user);
+
     io.to(user.room).emit("message", formatMessage(user.username, msg));
   });
   socket.on("disconnect", () => {

@@ -4,7 +4,7 @@
   "description": "Chat app using socket.io",
   "main": "server.js",
   "scripts": {
-    "start" : "node server",
+    "start": "node server",
     "dev": "nodemon server"
   },
   "author": "Rishi",
@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "moment": "^2.29.4",
-    "socket.io": "^4.5.4"
+    "socket.io": "^4.5.4",
+    "socket.io-client": "^4.6.1"
   }
 }

@@ -1,3 +1,4 @@
+// import { io } from "socket.io-client";
 const chatForm = document.getElementById("chat-form");
 const chatMessages = document.querySelector(".chat-messages");
 const roomName = document.getElementById("room-name");
@@ -7,7 +8,7 @@ const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
 
-const socket = io();
+const socket = io("http://localhost:3000");
 
 socket.emit("joinRoom", { username, room });
 
