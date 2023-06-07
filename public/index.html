@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-            integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-        <link rel="stylesheet" href="css/style.css" />
-        <title>ChatCord App</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #283044;
+            --accent-color: #78a1bb;
+            --bg-color: #ebf5ee;
+        }
+    </style>
+    <title>ChatCord App</title>
+</head>
 
-    <body>
-        <div class="join-container">
-            <header class="join-header">
-                <h1><i class="fas fa-smile"></i> ChatCord</h1>
+<body >
+    <div class="flex justify-center items-center h-screen bg-blue-100">
+        <div class="w-full max-w-lg p-6 bg-blue-300 rounded shadow-lg py-12">
+            <header class="text-center">
+                <h1 class="text-3xl font-bold text-blue-900"></i> ChatCord</h1>
             </header>
-            <main class="join-main">
-                <form action="chat.html">
-                    <div class="form-control">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Enter username..." required />
+            <main class="mt-6">
+                <form action="chat.html" class="space-y-4">
+                    <div>
+                        <label for="username" class="text-blue-950">Username</label>
+                        <br>
+                        <input type="text" name="username" id="username"
+                            class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 shadow-sm"
+                            placeholder="Enter username..." required>
                     </div>
-                    <div class="form-control">
-                        <label for="room">Room</label>
-                        <select name="room" id="room">
+                    <div>
+                        <label for="room" class="text-blue-950">Room</label>
+                        <select name="room" id="room"
+                            class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 shadow-sm">
                             <option value="Announcements">Announcements</option>
                             <option value="General-Chat">General-Chat</option>
                             <option value="Off-topic">Off-topic</option>
@@ -33,10 +46,12 @@
                             <option value="Projects">Projects</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn">Join Chat</button>
+                    <button type="submit"
+                        class="w-full px-4 py-2 btn bg-blue-900 text-white px-4 rounded-md ">Join Chat</button>
                 </form>
             </main>
         </div>
-    </body>
+    </div>
+</body>
 
 </html>

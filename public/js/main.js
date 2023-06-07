@@ -40,17 +40,43 @@ chatForm.addEventListener("submit", (e) => {
 function outputMessage(message) {
   const div = document.createElement("div");
   div.classList.add("message");
+  
   const p = document.createElement("p");
   p.classList.add("meta");
-  p.innerText = message.username;
-  p.innerHTML += `<span>${message.time}</span>`;
+  
+  const spanUsername = document.createElement("span");
+  spanUsername.classList.add("username");
+  spanUsername.innerText = message.username;
+  
+  const spanTime = document.createElement("span");
+  spanTime.classList.add("time");
+  spanTime.innerText = message.time;
+  
+  p.appendChild(spanUsername);
+  p.appendChild(spanTime);
+  
   div.appendChild(p);
+  
   const para = document.createElement("p");
   para.classList.add("text");
   para.innerText = message.text;
+  
   div.appendChild(para);
+  
+  // Set message alignment based on sender or receiver
+  if (message.username === username) {
+    div.classList.add("sender");
+    p.classList.add("text-right");
+    spanTime.classList.add("ml-2");
+  } else {
+    div.classList.add("receiver");
+    p.classList.add("text-left");
+    spanTime.classList.add("mr-2");
+  }
+  
   document.querySelector(".chat-messages").appendChild(div);
 }
+
 
 function outputRoomName(room) {
   roomName.innerText = room;
