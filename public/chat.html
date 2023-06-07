@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-            integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-        <link rel="stylesheet" href="css/style.css">
-        <title>ChatCord App</title>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatCord App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  
+</head>
 
-    <body>
-        <div class="chat-container">
-            <header class="chat-header">
-                <h1><i class="fas fa-smile"></i> ChatCord</h1>
-                <a href="index.html" class="btn">Leave Room</a>
-            </header>
-            <main class="chat-main">
-                <div class="chat-sidebar">
-                    <h3><i class="fas fa-comments"></i> Room Name:</h3>
-                    <h2 id="room-name"></h2>
-                    <h3><i class="fas fa-users"></i> Users</h3>
-                    <ul id="users">
-                    </ul>
-                </div>
-                <div class="chat-messages">
-                    <div class="message">
-                    </div>
-                    <div class="message">
-                    </div>
-                </div>
-            </main>
-            <div class="chat-form-container">
-                <form id="chat-form">
-                    <input id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
-                    <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
-                </form>
-            </div>
+<body class="bg-gray-100">
+  <div class="chat-container mx-auto py-1 px-1">
+    <header class="chat-header flex justify-between items-center mb-4">
+      <h1 class="text-3xl font-bold"><i class="fas fa-smile"></i> ChatCord</h1>
+      <a href="index.html" class="btn bg-blue-900 text-white px-4 rounded-md py-1">Leave Room</a>
+    </header>
+    <main class="grid grid-cols-1 md:grid-cols-3 gap-1">
+      <div class="chat-sidebar  text-white rounded-lg p-4">
+        <h3 class="text-lg font-semibold mb-2"><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 id="room-name"></h2>
+        <h3 class="text-lg font-semibold mt-4 mb-2"><i class="fas fa-users"></i> Users</h3>
+        <ul id="users"></ul>
+      </div>
+      <div class="col-span-2 bg-white rounded-lg p-4">
+        <div class="chat-messages grid grid-cols-1 gap-1 overflow-y-auto">
+          
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js"
-            integrity="sha512-/l6vieC+YxaZywUhmqs++8uF9DeMvJE61ua5g+UK0TuHZ4TkTgB1Gm1n0NiA86uEOM9JJ6JUwyR0hboKO0fCng=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>
-        <script type="module" src="js/main.js"></script>
-    </body>
+      </div>
+    </main>
+    <div class="chat-form-container mt-4 rounded-md">
+      <form id="chat-form" class="flex">
+        <input id="msg" type="text" placeholder="Enter Message" required autocomplete="off"
+          class="flex-1 py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-300 m-1"><br>
+        <button class="btn bg-blue-900  text-white px-4 rounded-md m-1"><i
+            class="fas fa-paper-plane"></i> Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js"
+    integrity="sha512-/l6vieC+YxaZywUhmqs++8uF9DeMvJE61ua5g+UK0TuHZ4TkTgB1Gm1n0NiA86uEOM9JJ6JUwyR0hboKO0fCng=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
 
 </html>
